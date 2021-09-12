@@ -1,0 +1,22 @@
+.bar {
+  width: 20px;
+  background-color: rgb(160, 217, 201);
+}
+
+.active {
+  width: 20px;
+  background-color: rgb(231, 166, 102);
+}
+
+.bars-container {
+  display: flex;
+  flex-direction: row;
+  gap: 2px;
+  justify-content: center;
+  align-items: flex-end;
+}
+
+nav {
+  border: solid red;
+  height: 185px;
+}
