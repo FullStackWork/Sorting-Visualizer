@@ -1,11 +1,21 @@
-.bar {
+.inactive {
   width: 20px;
-  background-color: rgb(160, 217, 201);
+  background-color: rgb(214, 195, 195);
 }
 
-.active {
+.active-green {
   width: 20px;
-  background-color: rgb(231, 166, 102);
+  background-color: rgb(42, 197, 25);
+}
+
+.active-red {
+  width: 20px;
+  background-color: rgb(219, 130, 93);
+}
+
+.active-blue {
+  width: 20px;
+  background-color: rgb(30, 105, 255);
 }
 
 .bars-container {
