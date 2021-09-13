@@ -1,11 +1,16 @@
 .inactive {
   width: 20px;
-  background-color: rgb(214, 195, 195);
+  background-color: lightgray;
 }
 
 .active-green {
   width: 20px;
   background-color: rgb(42, 197, 25);
+}
+
+.active-purple {
+  width: 20px;
+  background-color: rgb(167, 97, 243);
 }
 
 .active-red {
@@ -24,9 +29,42 @@
   gap: 2px;
   justify-content: center;
   align-items: flex-end;
+  height: 640px;
+}
+
+#main {
+  display: flex;
+  flex-direction: column;
 }
 
 nav {
-  border: solid red;
-  height: 185px;
+  background-color: lightgray;
+  height: 50px;
+  display: flex;
+  flex-direction: row;
+  justify-content: left;
+  align-items: center;
+  gap: 20px;
+}
+
+.left {
+  position: relative;
+  left: 20px;
+}
+
+.right {
+  position: relative;
+  left: 750px;
+  background-color: #16ab18;
+  color: white;
+}
+
+.button {
+  border: none;
+  padding: 7px 17px;
+  text-align: center;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
 }
