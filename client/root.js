@@ -2,6 +2,7 @@ import React from 'react';
 import bubbleSort from './bubbleSort';
 import insertionSort from './insertionSort';
 import selectionSort from './selectionSort';
+import quickSort from './quickSort';
 
 class Root extends React.Component {
   constructor() {
@@ -12,6 +13,7 @@ class Root extends React.Component {
     this.bubbleSort = bubbleSort.bind(this);
     this.insertionSort = insertionSort.bind(this);
     this.selectionSort = selectionSort.bind(this);
+    this.quickSort = quickSort.bind(this);
   }
 
   componentDidMount() {
@@ -70,6 +72,13 @@ class Root extends React.Component {
             onClick={() => this.selectionSort(bars)}
           >
             Selection Sort
+          </button>
+          <button
+            type="button"
+            className="button right"
+            onClick={() => this.quickSort(bars)}
+          >
+            Quick Sort
           </button>
         </nav>
         <div className="bars-container">
