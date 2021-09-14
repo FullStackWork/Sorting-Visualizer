@@ -24,7 +24,7 @@ export const pause = async function () {
   await new Promise((resolve) =>
     setTimeout(() => {
       resolve();
-    }, 0)
+    }, 20)
   );
 };
 
@@ -37,5 +37,8 @@ export const sfx = {
   }),
   done: new Howl({
     src: ['save-menu.wav'],
+  }),
+  split: new Howl({
+    src: ['swimming.wav'],
   }),
 };
