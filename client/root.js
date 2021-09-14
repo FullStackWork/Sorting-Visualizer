@@ -3,6 +3,7 @@ import bubbleSort from './bubbleSort';
 import insertionSort from './insertionSort';
 import selectionSort from './selectionSort';
 import quickSort from './quickSort';
+import { quickSortHelper } from './quickSort';
 
 class Root extends React.Component {
   constructor() {
@@ -14,6 +15,7 @@ class Root extends React.Component {
     this.insertionSort = insertionSort.bind(this);
     this.selectionSort = selectionSort.bind(this);
     this.quickSort = quickSort.bind(this);
+    this.quickSortHelper = quickSortHelper.bind(this);
   }
 
   componentDidMount() {
@@ -21,7 +23,7 @@ class Root extends React.Component {
   }
   genArray() {
     const array = [];
-    for (let i = 0; i < 170; i++) {
+    for (let i = 0; i < 20; i++) {
       array.push(genRandomNum(5, 500));
     }
     this.setState({ array });
