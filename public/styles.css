@@ -1,8 +1,7 @@
 .inactive {
   width: 20px;
-  background-color: rgb(0, 0, 0);
+  background-color: lightgray;
 }
-
 .active-green {
   width: 20px;
   background-color: rgb(42, 197, 25);
@@ -67,4 +66,19 @@ nav {
   font-size: 16px;
   margin: 4px 2px;
   cursor: pointer;
+}
+
+.refresh {
+  background-color: #d74e28;
+  color: white;
+}
+
+.gen-array {
+  background-color: #eaf371;
+  color: black;
+}
+
+.inactive-button {
+  background-color: #cac9c9;
+  color: rgb(220, 220, 220);
 }

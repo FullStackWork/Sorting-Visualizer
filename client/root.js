@@ -22,8 +22,21 @@ class Root extends React.Component {
     this.genArray();
   }
   genArray() {
+    const arrayBars = Array.from(
+      document.getElementsByClassName('active-green')
+    );
+    if (arrayBars.length) {
+      arrayBars.forEach((bar) => (bar.className = 'inactive'));
+    }
+
+    const buttons = Array.from(document.getElementsByClassName('button'));
+    buttons.forEach((button) => {
+      button.disabled = false;
+      button.classList.remove('inactive-button');
+    });
+
     const array = [];
-    for (let i = 0; i < 725; i++) {
+    for (let i = 0; i < 100; i++) {
       array.push(genRandomNum(5, 500));
     }
     this.setState({ array });
@@ -39,22 +52,23 @@ class Root extends React.Component {
       <React.Fragment>
         <nav>
           <button
+            disabled={false}
             type="button"
-            className="button left"
-            style={{ backgroundColor: `#d74e28`, color: 'white' }}
+            className="button left refresh"
             onClick={() => this.refresh()}
           >
             Refresh
           </button>
           <button
+            disabled={false}
             type="button"
-            className="button left"
-            style={{ backgroundColor: `#eaf371`, color: 'black' }}
+            className="button left gen-array"
             onClick={() => this.genArray()}
           >
             Generate New Array
           </button>
           <button
+            disabled={false}
             type="button"
             className="button right"
             onClick={() => this.bubbleSort(bars)}
@@ -62,6 +76,7 @@ class Root extends React.Component {
             Bubble Sort
           </button>
           <button
+            disabled={false}
             type="button"
             className="button right"
             onClick={() => this.insertionSort(bars)}
@@ -69,6 +84,7 @@ class Root extends React.Component {
             Insertion Sort
           </button>
           <button
+            disabled={false}
             type="button"
             className="button right"
             onClick={() => this.selectionSort(bars)}
@@ -76,6 +92,7 @@ class Root extends React.Component {
             Selection Sort
           </button>
           <button
+            disabled={false}
             type="button"
             className="button right"
             onClick={() => this.quickSort(bars)}

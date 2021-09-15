@@ -28,6 +28,25 @@ export const pause = async function () {
   );
 };
 
+export const updateButtons = function (boolean) {
+  const buttons = Array.from(document.getElementsByClassName('button'));
+  if (boolean === true) {
+    buttons.forEach((button) => {
+      if (button.outerText !== 'Refresh') {
+        button.disabled = boolean;
+        button.classList.add('inactive-button');
+      }
+    });
+  } else {
+    buttons.forEach((button) => {
+      if (button.outerText === 'Generate New Array') {
+        button.disabled = boolean;
+        button.classList.remove('inactive-button');
+      }
+    });
+  }
+};
+
 export const sfx = {
   sorted: new Howl({
     src: ['coin.wav'],

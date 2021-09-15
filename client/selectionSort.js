@@ -1,10 +1,12 @@
 import {
   updateSingleBarColor,
   updateComparedBars,
+  updateButtons,
   sfx,
 } from './updateBarColorFunctions';
 
 const selectionSort = async function (array) {
+  updateButtons(true);
   const arrayBars = Array.from(document.getElementsByClassName('inactive'));
 
   for (let i = 0; i < array.length; i++) {
@@ -34,6 +36,7 @@ const selectionSort = async function (array) {
   for (let i = 0; i < array.length; i++) {
     await updateSingleBarColor(arrayBars, i, 'active-green');
   }
+  updateButtons(false);
 };
 
 export default selectionSort;

@@ -1,10 +1,12 @@
 import {
   updateSingleBarColor,
   updateComparedBars,
+  updateButtons,
   sfx,
 } from './updateBarColorFunctions';
 
 const bubbleSort = async function (array) {
+  updateButtons(true);
   //the bars in the DOM
   const arrayBars = Array.from(document.getElementsByClassName('inactive'));
   let stopPos = array.length - 1;
@@ -37,6 +39,7 @@ const bubbleSort = async function (array) {
   for (let i = 0; i < array.length; i++) {
     await updateSingleBarColor(arrayBars, i, 'active-green');
   }
+  updateButtons(false);
 };
 
 export default bubbleSort;

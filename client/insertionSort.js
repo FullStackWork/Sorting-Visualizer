@@ -1,10 +1,12 @@
 import {
   updateSingleBarColor,
   updateComparedBars,
+  updateButtons,
   sfx,
 } from './updateBarColorFunctions';
 
 const insertionSort = async function (array) {
+  updateButtons(true);
   const arrayBars = Array.from(document.getElementsByClassName('inactive'));
   for (let i = 1; i < array.length; i++) {
     let j = i;
@@ -22,6 +24,7 @@ const insertionSort = async function (array) {
   for (let i = 0; i < array.length; i++) {
     await updateSingleBarColor(arrayBars, i, 'active-green');
   }
+  updateButtons(false);
 };
 
 export default insertionSort;
