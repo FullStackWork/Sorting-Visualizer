@@ -6,44 +6,50 @@ import {
   end,
 } from './helperFunctions';
 
-const quickSort = async function (array) {
+const quickSort = async function (array, speed) {
   const arrayBars = start();
-  await this.quickSortHelper(array, arrayBars, 0, array.length - 1);
+  await this.quickSortHelper(array, arrayBars, 0, array.length - 1, speed);
   end(array, arrayBars);
 };
 
-export const quickSortHelper = async function (array, arrayBars, start, stop) {
+export const quickSortHelper = async function (
+  array,
+  arrayBars,
+  start,
+  stop,
+  speed
+) {
   if (start >= stop) {
     if (start < array.length) {
-      updateSingleBarColor(arrayBars, start, 'active-green');
+      updateSingleBarColor(arrayBars, start, 'active-green', speed);
     }
     return array;
   }
 
   let pivot = start;
-  updateSingleBarColor(arrayBars, pivot, 'active-blue');
+  updateSingleBarColor(arrayBars, pivot, 'active-blue', speed);
   let left = start + 1;
   let right = stop;
 
   while (left <= right) {
-    updateComparedBars(arrayBars, left, right, 'active-red');
+    updateComparedBars(arrayBars, left, right, 'active-red', speed);
     if (array[left] > array[pivot] && array[right] < array[pivot]) {
-      await updateComparedBars(arrayBars, left, right, 'active-green');
+      await updateComparedBars(arrayBars, left, right, 'active-green', speed);
       [array[left], array[right]] = [array[right], array[left]];
       sfx.found.play();
     } else {
       if (array[left] <= array[pivot]) {
-        updateSingleBarColor(arrayBars, left, 'inactive');
+        updateSingleBarColor(arrayBars, left, 'inactive', speed);
         left++;
         if (left <= array.length - 1) {
-          await updateSingleBarColor(arrayBars, left, 'active-red');
+          await updateSingleBarColor(arrayBars, left, 'active-red', speed);
         }
       }
       if (array[right] >= array[pivot]) {
-        updateSingleBarColor(arrayBars, right, 'inactive');
+        updateSingleBarColor(arrayBars, right, 'inactive', speed);
         right--;
         if (right >= 0) {
-          await updateSingleBarColor(arrayBars, right, 'active-red');
+          await updateSingleBarColor(arrayBars, right, 'active-red', speed);
         }
       }
     }
@@ -54,20 +60,20 @@ export const quickSortHelper = async function (array, arrayBars, start, stop) {
   [array[pivot], array[right]] = [array[right], array[pivot]];
   this.setState({ array });
   sfx.split.play();
-  updateSingleBarColor(arrayBars, right, 'active-green');
+  updateSingleBarColor(arrayBars, right, 'active-green', speed);
 
   if (left <= array.length - 1) {
-    updateSingleBarColor(arrayBars, left, 'inactive');
+    updateSingleBarColor(arrayBars, left, 'inactive', speed);
   }
 
-  updateSingleBarColor(arrayBars, pivot, 'inactive');
+  updateSingleBarColor(arrayBars, pivot, 'inactive', speed);
 
   await this.quickSortHelper(array, arrayBars, start, right - 1);
   await this.quickSortHelper(array, arrayBars, right + 1, stop);
 
   for (let i = start; i <= stop + 1; i++) {
     if (i < array.length - 1) {
-      updateSingleBarColor(arrayBars, i, 'active-green');
+      updateSingleBarColor(arrayBars, i, 'active-green', speed);
     }
   }
 };

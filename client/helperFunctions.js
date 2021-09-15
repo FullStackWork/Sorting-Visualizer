@@ -19,35 +19,39 @@ export const end = async function (array, arrayBars) {
 export const updateSingleBarColor = async function (
   arrayBars,
   position,
-  color
+  color,
+  speed
 ) {
   arrayBars[position].className = color;
-  await pause();
+  await pause(speed);
 };
 
 export const updateComparedBars = async function (
   arrayBars,
   positionOne,
   positionTwo,
-  color
+  color,
+  speed
 ) {
   arrayBars[positionOne].className = color;
   arrayBars[positionTwo].className = color;
-  await pause();
+  await pause(speed);
 };
 
 //The key to the 'animations', a delay
-export const pause = async function () {
+export const pause = async function (speed) {
   await new Promise((resolve) =>
     setTimeout(() => {
       resolve();
-    }, 0)
+    }, speed)
   );
 };
 
 export const updateButtons = function (boolean) {
   const slider = document.getElementById('bars');
+  const speed = document.getElementById('speed');
   slider.disabled = boolean;
+  speed.disabled = boolean;
   const buttons = Array.from(document.getElementsByClassName('button'));
   if (boolean === true) {
     buttons.forEach((button) => {

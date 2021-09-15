@@ -10,13 +10,15 @@ class Root extends React.Component {
     super();
     this.state = {
       array: [],
+      currentSpeed: 200,
     };
     this.bubbleSort = bubbleSort.bind(this);
     this.insertionSort = insertionSort.bind(this);
     this.selectionSort = selectionSort.bind(this);
     this.quickSort = quickSort.bind(this);
     this.quickSortHelper = quickSortHelper.bind(this);
-    this.slider = this.slider.bind(this);
+    this.barSlider = this.barSlider.bind(this);
+    this.speed = this.speed.bind(this);
   }
 
   componentDidMount() {
@@ -53,12 +55,20 @@ class Root extends React.Component {
     }
   }
 
-  slider(event) {
+  barSlider(event) {
     this.genArray(event.target.value);
+  }
+
+  speed(event) {
+    const speed = event.target.value === 1000 ? 0 : 1000 - event.target.value;
+    this.setState({ currentSpeed: speed });
   }
 
   render() {
     const bars = this.state.array;
+    const speed = this.state.currentSpeed;
+    const color = this.state.color;
+    console.log(color);
     return (
       <React.Fragment>
         <nav>
@@ -78,8 +88,42 @@ class Root extends React.Component {
           >
             Generate New Array
           </button>
+          <button
+            disabled={false}
+            type="button"
+            className="button right"
+            onClick={() => this.bubbleSort(bars, speed)}
+          >
+            Bubble Sort
+          </button>
+          <button
+            disabled={false}
+            type="button"
+            className="button right"
+            onClick={() => this.insertionSort(bars, speed)}
+          >
+            Insertion Sort
+          </button>
+          <button
+            disabled={false}
+            type="button"
+            className="button right"
+            onClick={() => this.selectionSort(bars, speed)}
+          >
+            Selection Sort
+          </button>
+          <button
+            disabled={false}
+            type="button"
+            className="button right"
+            onClick={() => this.quickSort(bars, speed)}
+          >
+            Quick Sort
+          </button>
+        </nav>
+        <nav className="bottom-nav">
           <div className="slidecontainer">
-            <label htmlFor="vol"></label>
+            <label htmlFor="vol">Bars</label>
             <input
               disabled={false}
               type="range"
@@ -88,41 +132,21 @@ class Root extends React.Component {
               min="50"
               max="600"
               step="20"
-              onChange={this.slider}
+              onChange={this.barSlider}
+            />
+            <label htmlFor="speed">Speed</label>
+            <input
+              disabled={false}
+              type="range"
+              id="speed"
+              name="speed"
+              defaultValue="0"
+              min="0"
+              max="1000"
+              step="50"
+              onChange={this.speed}
             />
           </div>
-          <button
-            disabled={false}
-            type="button"
-            className="button right"
-            onClick={() => this.bubbleSort(bars)}
-          >
-            Bubble Sort
-          </button>
-          <button
-            disabled={false}
-            type="button"
-            className="button right"
-            onClick={() => this.insertionSort(bars)}
-          >
-            Insertion Sort
-          </button>
-          <button
-            disabled={false}
-            type="button"
-            className="button right"
-            onClick={() => this.selectionSort(bars)}
-          >
-            Selection Sort
-          </button>
-          <button
-            disabled={false}
-            type="button"
-            className="button right"
-            onClick={() => this.quickSort(bars)}
-          >
-            Quick Sort
-          </button>
         </nav>
         <div className="bars-container">
           {bars.map(function (barValue, idx) {
