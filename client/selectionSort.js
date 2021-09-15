@@ -8,11 +8,11 @@ const selectionSort = async function (array) {
   const arrayBars = Array.from(document.getElementsByClassName('inactive'));
 
   for (let i = 0; i < array.length; i++) {
-    let currentSmallest = i >= array.length - 1 ? i : i + 1;
-    updateSingleBarColor(arrayBars, i, 'active-blue');
+    let currentSmallest = i;
 
     for (let j = i + 1; j < array.length; j++) {
       updateSingleBarColor(arrayBars, currentSmallest, 'active-red');
+      updateSingleBarColor(arrayBars, i, 'active-blue');
       await updateSingleBarColor(arrayBars, j, 'active-blue');
       if (array[j] <= array[currentSmallest]) {
         updateSingleBarColor(arrayBars, j, 'active-red');

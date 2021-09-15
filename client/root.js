@@ -23,7 +23,7 @@ class Root extends React.Component {
   }
   genArray() {
     const array = [];
-    for (let i = 0; i < 20; i++) {
+    for (let i = 0; i < 725; i++) {
       array.push(genRandomNum(5, 500));
     }
     this.setState({ array });

@@ -24,7 +24,7 @@ export const pause = async function () {
   await new Promise((resolve) =>
     setTimeout(() => {
       resolve();
-    }, 20)
+    }, 0)
   );
 };
 
