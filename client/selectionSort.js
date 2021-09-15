@@ -1,13 +1,13 @@
 import {
   updateSingleBarColor,
   updateComparedBars,
-  updateButtons,
   sfx,
-} from './updateBarColorFunctions';
+  start,
+  end,
+} from './helperFunctions';
 
 const selectionSort = async function (array) {
-  updateButtons(true);
-  const arrayBars = Array.from(document.getElementsByClassName('inactive'));
+  const arrayBars = start();
 
   for (let i = 0; i < array.length; i++) {
     let currentSmallest = i;
@@ -32,11 +32,7 @@ const selectionSort = async function (array) {
     updateSingleBarColor(arrayBars, i, 'active-purple');
     sfx.sorted.play();
   }
-  sfx.done.play();
-  for (let i = 0; i < array.length; i++) {
-    await updateSingleBarColor(arrayBars, i, 'active-green');
-  }
-  updateButtons(false);
+  end(array, arrayBars);
 };
 
 export default selectionSort;

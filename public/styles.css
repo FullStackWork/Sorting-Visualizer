@@ -19,7 +19,7 @@
 
 .active-blue {
   width: 20px;
-  background-color: rgb(30, 105, 255);
+  background-color: rgb(76, 136, 255);
 }
 
 .bars-container {
@@ -53,7 +53,7 @@ nav {
 
 .right {
   position: relative;
-  left: 617px;
+  left: 450px;
   background-color: #16ab18;
   color: white;
 }

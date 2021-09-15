@@ -16,27 +16,18 @@ class Root extends React.Component {
     this.selectionSort = selectionSort.bind(this);
     this.quickSort = quickSort.bind(this);
     this.quickSortHelper = quickSortHelper.bind(this);
+    this.slider = this.slider.bind(this);
   }
 
   componentDidMount() {
     this.genArray();
   }
-  genArray() {
-    const arrayBars = Array.from(
-      document.getElementsByClassName('active-green')
-    );
-    if (arrayBars.length) {
-      arrayBars.forEach((bar) => (bar.className = 'inactive'));
-    }
-
-    const buttons = Array.from(document.getElementsByClassName('button'));
-    buttons.forEach((button) => {
-      button.disabled = false;
-      button.classList.remove('inactive-button');
-    });
+  genArray(value = document.getElementById('bars').value) {
+    this.resetBarClasses();
+    this.activateButtons();
 
     const array = [];
-    for (let i = 0; i < 100; i++) {
+    for (let i = 0; i < value; i++) {
       array.push(genRandomNum(5, 500));
     }
     this.setState({ array });
@@ -44,6 +35,26 @@ class Root extends React.Component {
 
   refresh() {
     window.location.reload();
+  }
+
+  activateButtons() {
+    const buttons = Array.from(document.getElementsByClassName('button'));
+    buttons.forEach((button) => {
+      button.disabled = false;
+      button.classList.remove('inactive-button');
+    });
+  }
+  resetBarClasses() {
+    const arrayBars = Array.from(
+      document.getElementsByClassName('active-green')
+    );
+    if (arrayBars.length) {
+      arrayBars.forEach((bar) => (bar.className = 'inactive'));
+    }
+  }
+
+  slider(event) {
+    this.genArray(event.target.value);
   }
 
   render() {
@@ -67,6 +78,19 @@ class Root extends React.Component {
           >
             Generate New Array
           </button>
+          <div className="slidecontainer">
+            <label htmlFor="vol"></label>
+            <input
+              disabled={false}
+              type="range"
+              id="bars"
+              name="bars"
+              min="50"
+              max="600"
+              step="20"
+              onChange={this.slider}
+            />
+          </div>
           <button
             disabled={false}
             type="button"

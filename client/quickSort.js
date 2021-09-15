@@ -1,16 +1,15 @@
 import {
   updateSingleBarColor,
   updateComparedBars,
-  updateButtons,
   sfx,
-} from './updateBarColorFunctions';
+  start,
+  end,
+} from './helperFunctions';
 
 const quickSort = async function (array) {
-  updateButtons(true);
-  const arrayBars = Array.from(document.getElementsByClassName('inactive'));
+  const arrayBars = start();
   await this.quickSortHelper(array, arrayBars, 0, array.length - 1);
-  sfx.done.play();
-  updateButtons(false);
+  end(array, arrayBars);
 };
 
 export const quickSortHelper = async function (array, arrayBars, start, stop) {

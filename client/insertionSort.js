@@ -1,13 +1,13 @@
 import {
   updateSingleBarColor,
   updateComparedBars,
-  updateButtons,
   sfx,
-} from './updateBarColorFunctions';
+  start,
+  end,
+} from './helperFunctions';
 
 const insertionSort = async function (array) {
-  updateButtons(true);
-  const arrayBars = Array.from(document.getElementsByClassName('inactive'));
+  const arrayBars = start();
   for (let i = 1; i < array.length; i++) {
     let j = i;
     await updateSingleBarColor(arrayBars, j - 1, 'active-purple');
@@ -20,11 +20,8 @@ const insertionSort = async function (array) {
     }
     sfx.sorted.play();
   }
-  sfx.done.play();
-  for (let i = 0; i < array.length; i++) {
-    await updateSingleBarColor(arrayBars, i, 'active-green');
-  }
-  updateButtons(false);
+
+  end(array, arrayBars);
 };
 
 export default insertionSort;
