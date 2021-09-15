@@ -1,36 +1,36 @@
 .inactive {
-  width: 20px;
+  width: 100px;
   background-color: lightgray;
 }
 
 .black {
-  width: 20px;
+  width: 100px;
   background-color: rgb(132, 131, 131);
 }
 .active-green {
-  width: 20px;
+  width: 100px;
   background-color: rgb(42, 197, 25);
 }
 
 .active-purple {
-  width: 20px;
+  width: 100px;
   background-color: rgb(167, 97, 243);
 }
 
 .active-red {
-  width: 20px;
+  width: 100px;
   background-color: rgb(219, 130, 93);
 }
 
 .active-blue {
-  width: 20px;
+  width: 100px;
   background-color: rgb(76, 136, 255);
 }
 
 .bars-container {
   display: flex;
   flex-direction: row;
-  gap: 2px;
+  gap: 1px;
   justify-content: center;
   align-items: flex-end;
   height: 580px;
@@ -49,6 +49,7 @@ nav {
   justify-content: left;
   align-items: center;
   gap: 20px;
+  border-radius: 15px;
 }
 
 .bottom-nav {
@@ -59,6 +60,7 @@ nav {
 .left {
   position: relative;
   left: 20px;
+  border-radius: 15px;
 }
 
 .right {
@@ -66,6 +68,7 @@ nav {
   left: 600px;
   background-color: #16ab18;
   color: white;
+  border-radius: 15px;
 }
 
 .button {
@@ -91,4 +94,24 @@ nav {
 .inactive-button {
   background-color: #cac9c9;
   color: rgb(220, 220, 220);
+}
+.slidecontainer {
+  width: 500px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+}
+input {
+  background-color: rgb(0, 225, 255);
+}
+label {
+  background-color: #4596e7;
+  color: white;
+  padding: 5px 10px;
+  text-align: center;
+  /* display: inline-block; */
+  font-size: 12px;
+  /* margin: 4px 2px; */
+  font-family: Lucida Grande;
+  border-radius: 15px;
 }

@@ -10,7 +10,7 @@ class Root extends React.Component {
     super();
     this.state = {
       array: [],
-      currentSpeed: 1000,
+      currentSpeed: 100,
     };
     this.bubbleSort = bubbleSort.bind(this);
     this.insertionSort = insertionSort.bind(this);
@@ -60,15 +60,13 @@ class Root extends React.Component {
   }
 
   speed(event) {
-    const speed = event.target.value === 2000 ? 0 : 2000 - event.target.value;
+    const speed = event.target.value === 1000 ? 0 : 1000 - event.target.value;
     this.setState({ currentSpeed: speed });
   }
 
   render() {
     const bars = this.state.array;
     const speed = this.state.currentSpeed;
-    const color = this.state.color;
-    console.log(color);
     return (
       <React.Fragment>
         <nav>
@@ -129,8 +127,9 @@ class Root extends React.Component {
               type="range"
               id="bars"
               name="bars"
+              defaultValue="150"
               min="20"
-              max="600"
+              max="400"
               step="20"
               onChange={this.barSlider}
             />
@@ -140,10 +139,10 @@ class Root extends React.Component {
               type="range"
               id="speed"
               name="speed"
-              defaultValue="0"
+              defaultValue="900"
               min="0"
-              max="2000"
-              step="50"
+              max="1000"
+              step="100"
               onChange={this.speed}
             />
           </div>
