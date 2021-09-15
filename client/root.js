@@ -10,7 +10,7 @@ class Root extends React.Component {
     super();
     this.state = {
       array: [],
-      currentSpeed: 200,
+      currentSpeed: 1000,
     };
     this.bubbleSort = bubbleSort.bind(this);
     this.insertionSort = insertionSort.bind(this);
@@ -60,7 +60,7 @@ class Root extends React.Component {
   }
 
   speed(event) {
-    const speed = event.target.value === 1000 ? 0 : 1000 - event.target.value;
+    const speed = event.target.value === 2000 ? 0 : 2000 - event.target.value;
     this.setState({ currentSpeed: speed });
   }
 
@@ -129,7 +129,7 @@ class Root extends React.Component {
               type="range"
               id="bars"
               name="bars"
-              min="50"
+              min="20"
               max="600"
               step="20"
               onChange={this.barSlider}
@@ -142,7 +142,7 @@ class Root extends React.Component {
               name="speed"
               defaultValue="0"
               min="0"
-              max="1000"
+              max="2000"
               step="50"
               onChange={this.speed}
             />

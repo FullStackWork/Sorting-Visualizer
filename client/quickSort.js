@@ -32,7 +32,7 @@ export const quickSortHelper = async function (
   let right = stop;
 
   while (left <= right) {
-    updateComparedBars(arrayBars, left, right, 'active-red', speed);
+    await updateComparedBars(arrayBars, left, right, 'active-red', speed);
     if (array[left] > array[pivot] && array[right] < array[pivot]) {
       await updateComparedBars(arrayBars, left, right, 'active-green', speed);
       [array[left], array[right]] = [array[right], array[left]];
@@ -56,7 +56,7 @@ export const quickSortHelper = async function (
 
     this.setState({ array });
   }
-
+  await updateComparedBars(arrayBars, pivot, right, 'active-green', speed);
   [array[pivot], array[right]] = [array[right], array[pivot]];
   this.setState({ array });
   sfx.split.play();
@@ -68,8 +68,8 @@ export const quickSortHelper = async function (
 
   updateSingleBarColor(arrayBars, pivot, 'inactive', speed);
 
-  await this.quickSortHelper(array, arrayBars, start, right - 1);
-  await this.quickSortHelper(array, arrayBars, right + 1, stop);
+  await this.quickSortHelper(array, arrayBars, start, right - 1, speed);
+  await this.quickSortHelper(array, arrayBars, right + 1, stop, speed);
 
   for (let i = start; i <= stop + 1; i++) {
     if (i < array.length - 1) {
