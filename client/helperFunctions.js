@@ -13,18 +13,18 @@ export const end = async function (array, arrayBars) {
   if (arrayBars.length > 250) {
     timerValue = 0;
   } else if (arrayBars.length > 150) {
-    timerValue = 20;
+    timerValue = 5;
   } else if (arrayBars.length > 70) {
-    timerValue = 30;
+    timerValue = 10;
   } else {
-    timerValue = 50;
+    timerValue = 20;
   }
-  updateButtons(false);
   for (let i = 0; i < array.length; i++) {
     await allDone(arrayBars, i, 'active-red', timerValue);
     await allDone(arrayBars, i, 'active-blue', timerValue);
     await allDone(arrayBars, i, 'active-green', timerValue);
   }
+  updateButtons(false);
   await stopMusic();
 };
 
@@ -107,7 +107,7 @@ export const sfx = {
   }),
   sorted: new Howl({
     src: ['coin.wav'],
-    volume: 0.8,
+    volume: 0.3,
   }),
   found: new Howl({
     src: ['kick.wav'],

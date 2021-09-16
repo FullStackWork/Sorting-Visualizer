@@ -4,6 +4,7 @@ import insertionSort from './insertionSort';
 import selectionSort from './selectionSort';
 import quickSort from './quickSort';
 import { quickSortHelper } from './quickSort';
+import heapSort, { constructHeap, siftDown, swap } from './heapSort';
 
 class Root extends React.Component {
   constructor() {
@@ -17,6 +18,10 @@ class Root extends React.Component {
     this.selectionSort = selectionSort.bind(this);
     this.quickSort = quickSort.bind(this);
     this.quickSortHelper = quickSortHelper.bind(this);
+    this.heapSort = heapSort.bind(this);
+    this.constructHeap = constructHeap.bind(this);
+    this.siftDown = siftDown.bind(this);
+    this.swap = swap.bind(this);
     this.barSlider = this.barSlider.bind(this);
     this.speed = this.speed.bind(this);
   }
@@ -117,6 +122,14 @@ class Root extends React.Component {
             onClick={() => this.quickSort(bars, speed)}
           >
             Quick Sort
+          </button>
+          <button
+            disabled={false}
+            type="button"
+            className="button right"
+            onClick={() => this.heapSort(bars, speed)}
+          >
+            Heap Sort
           </button>
         </nav>
         <nav className="bottom-nav">
