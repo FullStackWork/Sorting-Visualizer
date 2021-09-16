@@ -21,7 +21,7 @@ export const quickSortHelper = async function (
 ) {
   if (start >= stop) {
     if (start < array.length) {
-      updateSingleBarColor(arrayBars, start, 'active-green', speed);
+      updateSingleBarColor(arrayBars, start, 'active-purple', speed);
     }
     return array;
   }
@@ -60,7 +60,7 @@ export const quickSortHelper = async function (
   [array[pivot], array[right]] = [array[right], array[pivot]];
   this.setState({ array });
   sfx.split.play();
-  updateSingleBarColor(arrayBars, right, 'active-green', speed);
+  updateSingleBarColor(arrayBars, right, 'active-purple', speed);
 
   if (left <= array.length - 1) {
     updateSingleBarColor(arrayBars, left, 'inactive', speed);
@@ -73,7 +73,7 @@ export const quickSortHelper = async function (
 
   for (let i = start; i <= stop + 1; i++) {
     if (i < array.length - 1) {
-      updateSingleBarColor(arrayBars, i, 'active-green', speed);
+      updateSingleBarColor(arrayBars, i, 'active-purple', speed);
     }
   }
 };
