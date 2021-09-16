@@ -27,7 +27,7 @@ export const quickSortHelper = async function (
   }
 
   let pivot = start;
-  updateSingleBarColor(arrayBars, pivot, 'active-blue', speed);
+  updateSingleBarColor(arrayBars, pivot, 'active-green', speed);
   let left = start + 1;
   let right = stop;
 
