@@ -19,11 +19,6 @@ const stopMusic = async function () {
     sfx.background.stop();
   }, 1000);
 };
-
-const allDone = async function (arrayBars, position, color, timerValue) {
-  arrayBars[position].className = color;
-  await allDoneTimer(timerValue);
-};
 export const updateSingleBarColor = async function (
   arrayBars,
   position,

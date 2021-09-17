@@ -12,6 +12,7 @@ const heapSort = async function (array, speed) {
 
   for (let i = array.length - 1; i >= 0; i--) {
     await this.swap(0, i, array, arrayBars, speed);
+    this.setState({ array });
     await updateSingleBarColor(arrayBars, i, 'active-purple', speed);
     await this.siftDown(0, i - 1, array, arrayBars, speed);
   }
@@ -64,25 +65,27 @@ export async function siftDown(
       );
       await swap(position, indexToSwap, array);
       this.setState({ array });
-      await updateSingleBarColor(arrayBars, position, 'inactive', speed);
+      await updateSingleBarColor(arrayBars, position, 'active-green', speed);
+      updateSingleBarColor(arrayBars, position, 'inactive', speed);
       position = indexToSwap;
       leftChild = position * 2 + 1;
       updateSingleBarColor(arrayBars, indexToSwap, 'inactive', speed);
-      updateSingleBarColor(arrayBars, position, 'active-blue', speed);
+      await updateSingleBarColor(arrayBars, position, 'active-blue', speed);
     } else {
-      updateSingleBarColor(arrayBars, indexToSwap, 'inactive', speed);
-      updateSingleBarColor(arrayBars, position, 'inactive', speed);
+      updateComparedBars(arrayBars, position, indexToSwap, 'inactive', speed);
       return;
     }
   }
   updateSingleBarColor(arrayBars, position, 'inactive', speed);
 }
 
-export async function swap(positionOne, positionTwo, array, arrayBars, speed) {
+export async function swap(positionOne, positionTwo, array) {
   [array[positionOne], array[positionTwo]] = [
     array[positionTwo],
     array[positionOne],
   ];
+
+  sfx.found.play();
 }
 
 export default heapSort;
