@@ -27,7 +27,7 @@ const bubbleSort = async function (array, speed) {
     stopPos -= 1;
   }
 
-  end(array, arrayBars);
+  end();
 };
 
 export default bubbleSort;

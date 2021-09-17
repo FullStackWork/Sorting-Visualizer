@@ -32,7 +32,7 @@ const selectionSort = async function (array, speed) {
     updateSingleBarColor(arrayBars, i, 'active-purple', speed);
     sfx.sorted.play();
   }
-  end(array, arrayBars);
+  end();
 };
 
 export default selectionSort;

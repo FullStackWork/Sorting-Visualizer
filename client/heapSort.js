@@ -8,12 +8,16 @@ import {
 
 const heapSort = async function (array, speed) {
   const arrayBars = start();
-  this.constructHeap(array, arrayBars, speed);
-  //   for (let i = array.length - 1; i >= 1; i--) {
-  //     swap(0, i, array, arrayBars, speed);
-  //     siftDown(0, i - 1, array, arrayBars, speed);
-  //   }
+  await this.constructHeap(array, arrayBars, speed);
+
+  for (let i = array.length - 1; i >= 0; i--) {
+    await this.swap(0, i, array, arrayBars, speed);
+    await updateSingleBarColor(arrayBars, i, 'active-purple', speed);
+    await this.siftDown(0, i - 1, array, arrayBars, speed);
+  }
+  updateSingleBarColor(arrayBars, 0, 'active-purple', speed);
   this.setState({ array });
+  end();
 };
 
 export async function constructHeap(array, arrayBars, speed) {
@@ -58,16 +62,20 @@ export async function siftDown(
         'active-green',
         speed
       );
-      swap(position, indexToSwap, array);
+      await swap(position, indexToSwap, array);
       this.setState({ array });
+      await updateSingleBarColor(arrayBars, position, 'inactive', speed);
       position = indexToSwap;
       leftChild = position * 2 + 1;
       updateSingleBarColor(arrayBars, indexToSwap, 'inactive', speed);
-      //   updateSingleBarColor(arrayBars, position, 'active-blue', speed);
+      updateSingleBarColor(arrayBars, position, 'active-blue', speed);
     } else {
+      updateSingleBarColor(arrayBars, indexToSwap, 'inactive', speed);
+      updateSingleBarColor(arrayBars, position, 'inactive', speed);
       return;
     }
   }
+  updateSingleBarColor(arrayBars, position, 'inactive', speed);
 }
 
 export async function swap(positionOne, positionTwo, array, arrayBars, speed) {

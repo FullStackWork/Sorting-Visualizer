@@ -53,7 +53,7 @@ class Root extends React.Component {
   }
   resetBarClasses() {
     const arrayBars = Array.from(
-      document.getElementsByClassName('active-green')
+      document.getElementsByClassName('active-purple')
     );
     if (arrayBars.length) {
       arrayBars.forEach((bar) => (bar.className = 'inactive'));

@@ -8,22 +8,7 @@ export const start = function () {
   return arrayBars;
 };
 
-export const end = async function (array, arrayBars) {
-  let timerValue;
-  if (arrayBars.length > 250) {
-    timerValue = 0;
-  } else if (arrayBars.length > 150) {
-    timerValue = 5;
-  } else if (arrayBars.length > 70) {
-    timerValue = 10;
-  } else {
-    timerValue = 20;
-  }
-  for (let i = 0; i < array.length; i++) {
-    await allDone(arrayBars, i, 'active-red', timerValue);
-    await allDone(arrayBars, i, 'active-blue', timerValue);
-    await allDone(arrayBars, i, 'active-green', timerValue);
-  }
+export const end = async function () {
   updateButtons(false);
   await stopMusic();
 };

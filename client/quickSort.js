@@ -9,7 +9,7 @@ import {
 const quickSort = async function (array, speed) {
   const arrayBars = start();
   await this.quickSortHelper(array, arrayBars, 0, array.length - 1, speed);
-  end(array, arrayBars);
+  end();
 };
 
 export const quickSortHelper = async function (

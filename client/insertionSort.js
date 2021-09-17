@@ -23,7 +23,7 @@ const insertionSort = async function (array, speed) {
     await updateSingleBarColor(arrayBars, j, 'active-purple', speed);
   }
 
-  end(array, arrayBars);
+  end();
 };
 
 export default insertionSort;
