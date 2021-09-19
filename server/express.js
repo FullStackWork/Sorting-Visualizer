@@ -3,7 +3,7 @@ const app = express();
 const path = require('path');
 
 app.get('/', function (req, res) {
-  res.sendFile(path.join('/Users/rohan/sorting-visualizer/public/index.html'));
+  res.sendFile('/Users/rohan/sorting-visualizer/public/index.html');
 });
 app.use(express.static(path.join('/Users/rohan/sorting-visualizer/public')));
 
