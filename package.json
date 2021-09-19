@@ -4,8 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "node server/express.js",
-    "start-dev": "webpack -w & nodemon server/express.js",
+    "start": "webpack -w node server/express.js",
+    "start-dev": "webpack -bundle & nodemon server/express.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
@@ -15,14 +15,14 @@
     "express": "^4.17.1",
     "howler": "^2.2.3",
     "react": "^17.0.2",
-    "react-dom": "^17.0.2"
+    "react-dom": "^17.0.2",
+    "webpack": "^5.53.0"
   },
   "devDependencies": {
     "@babel/core": "^7.15.5",
     "@babel/preset-react": "^7.14.5",
     "babel-loader": "^8.2.2",
     "nodemon": "^2.0.12",
-    "webpack": "^5.52.1",
     "webpack-cli": "^4.8.0"
   }
 }
