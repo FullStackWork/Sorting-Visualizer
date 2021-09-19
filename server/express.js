@@ -4,6 +4,6 @@ const path = require('path');
 
 app.use(express.static(path.join('/Users/rohan/sorting-visualizer/public')));
 
-app.listen(3000, function () {
-  console.log('listening on port 3000');
-});
+// app.listen(3000, function () {
+//   console.log('listening on port 3000');
+// });
