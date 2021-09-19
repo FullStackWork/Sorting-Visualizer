@@ -35,7 +35,7 @@ class Root extends React.Component {
 
     const array = [];
     for (let i = 0; i < value; i++) {
-      array.push(genRandomNum(5, 500));
+      array.push(genRandomNum(5, 700));
     }
     this.setState({ array });
   }

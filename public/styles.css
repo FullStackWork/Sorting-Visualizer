@@ -33,7 +33,7 @@
   gap: 1px;
   justify-content: center;
   align-items: flex-end;
-  height: 580px;
+  height: 770px;
 }
 
 #main {
@@ -65,7 +65,7 @@ nav {
 
 .right {
   position: relative;
-  left: 485px;
+  left: 865px;
   background-color: #16ab18;
   color: white;
   border-radius: 15px;
