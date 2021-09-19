@@ -3,7 +3,7 @@ const app = express();
 const path = require('path');
 
 app.get('/', function (req, res, next) {
-  res.send('public / index.html');
+  res.send(express.static(path.join('/Users/rohan/sorting-visualizer/public')));
 });
 app.use(express.static(path.join('/Users/rohan/sorting-visualizer/public')));
 
